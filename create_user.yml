@@ -1,0 +1,28 @@
+---
+-
+  name: create ansible user account
+  hosts: all
+  become: true
+  tasks: 
+    - name: Create ansible account
+      user: 
+        name:  'ansible'
+        groups:  "{{ admin_group }}"  
+        append: true
+        create_home: true
+        comment: "Ansible Managment Account"
+        expires:  -1
+        password: "{{ 'redhat' | password_hash('sha512') }}"
+
+    - name: deploy local User SSH key
+      authorized_key:
+        user: ansible
+        state: present
+        manage_dir: true
+        key: "{{ lookup('file', '/home/student/.ssh/id_rsh.pub') }}"
+
+    - name: setup sudo access for ansible user
+      copy:
+        dest: /etc/sudoers.d/ansible
+        content: 'ansible ALL=(ALL) NOPASSWD: ALL'
+     

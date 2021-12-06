@@ -1,0 +1,6 @@
+---
+- name: Deploy ansible user on other nodes
+  hosts: all
+  become: true
+
+  - 
