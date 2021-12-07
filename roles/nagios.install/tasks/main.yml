@@ -1,0 +1,21 @@
+---
+- name: Install epel respository
+  package:
+    name: epel-release
+    state: present
+
+- name: Install the nagios software
+  package: 
+    name: nagios
+    state: present
+
+- name: Change nagiosadmin password
+  command:
+    cmd: htpasswd -b /etc/nagios/passwd nagiosadmin {{ nagiosadmin_password }}
+
+- name: Start services
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  with_items:  [ nagios, httpd ]

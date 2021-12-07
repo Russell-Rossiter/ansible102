@@ -23,6 +23,41 @@ student08-node06.training.edgecloud.com
 student08-node07.training.edgecloud.com
 student08-node08.training.edgecloud.com
 
+[nyc3]
+student08-node01.training.edgecloud.com                                                                                  
+student08-node02.training.edgecloud.com                                                                                  
+student08-node03.training.edgecloud.com                                                                                  
+student08-node04.training.edgecloud.com
+
+
+[sfo]
+student08-node05.training.edgecloud.com                                                                                  
+student08-node06.training.edgecloud.com                                                                                  
+student08-node07.training.edgecloud.com                                                                                  
+student08-node08.training.edgecloud.com
+
+
+# Easch data center has 4 nodes in it and the nodes are organized as:
+# First node: monitoring system (nagios) 
+# second node: database and or load balancing server
+# Third /Fouth nodes web servers
+
+[nagios]
+student08-node01.training.edgecloud.com
+student08-node05.training.edgecloud.com
+
+[db]
+student08-node02.training.edgecloud.com
+student08-node06.training.edgecloud.com
+
+[web]
+student08-node03.training.edgecloud.com                                                               
+student08-node04.training.edgecloud.coms
+student08-node07.training.edgecloud.com                                                               
+student08-node08.training.edgecloud.com
+
+
+
 
 
 # Ex 2: A collection of hosts belonging to the 'webservers' group
