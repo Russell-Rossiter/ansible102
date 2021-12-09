@@ -52,7 +52,7 @@ student08-node06.training.edgecloud.com
 
 [web]
 student08-node03.training.edgecloud.com                                                               
-student08-node04.training.edgecloud.coms
+student08-node04.training.edgecloud.com
 student08-node07.training.edgecloud.com                                                               
 student08-node08.training.edgecloud.com
 
@@ -87,6 +87,6 @@ student08-node08.training.edgecloud.com
 
 ## db-[99:101]-node.example.com
 
-[web]
+[web2]
 student08-node01.training.edgecloud.com web_service=httpd web_package=httpd
 student08-node02.training.edgecloud.com

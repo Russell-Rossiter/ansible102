@@ -1,0 +1,21 @@
+----
+- name: Template nagios.cfg
+  template:
+    src: templates/nagios.cfg.j2
+    dest: /etc/nagios/nagios.cfg
+
+- name: Make sure the /etc/nagios/server folder exists
+  file: 
+    path: /etc/nagios/servers
+    state: directory
+
+- name: Template object file
+  template: 
+    src: templatest/object.cfg.j2
+    dest: /etc/nagios/servers/{{ item }}.cfg
+  with_items: "{{ groups['all'] }}"
+
+- name: Bounce nagios to realize config changes
+  service:
+    name: nagios
+    state: restarted 

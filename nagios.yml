@@ -1,7 +1,0 @@
----
-- hosts: [nagios]
-  remote_user: student 
-  gather_facts: no
-
-  tasks:
-    - name: Create the ansible user
